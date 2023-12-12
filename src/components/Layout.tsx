@@ -23,14 +23,14 @@ export default function Layout({children}: LayoutProps) {
  }
  return (
  <div className="bg-gray-50 min-h-screen">
- <div className="block md:hidden flex items-center p-4">
+ <div className="block md:hidden flex items-center ">
  
 
  </div>
 
  <div className="bg-gray-50 min-h-screen flex">
  <Header></Header>
- <div className=" flex-grow rounded-lg ">
+ <div className=" flex-grow rounded-lg bg-white  ">
    {children}
  </div>
 

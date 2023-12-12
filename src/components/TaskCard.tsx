@@ -2,17 +2,36 @@ import { Task } from '@prisma/client';
 import { useState } from 'react';
 import { api, type RouterOutputs } from '../utils/api';
 import { useSession } from 'next-auth/react';
+import { useTaskModel } from './TaskModel';
+import { taskRouter } from '~/server/api/routers/task';
+import TaskDialog from './TaskDialog';
 
 
 
 interface TaskCardProps {
  task: Task;
 
+
 }
 
 
-export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
+
+export const TaskCard: React.FC<TaskCardProps> = ({ task}) => {
   const { data: session } = useSession();
+  const {
+    isOpen,
+    titleRef,
+    descriptionRef,
+    statusRef,
+    priorityRef,
+    openModal,
+    closeModal,
+    createTaskHandler,
+    editTask,
+    selectedTask,
+    setSelectedTask,
+   } = useTaskModel();
+  
   
 
   const { data: tasks, refetch: refetchTasks } = api.task.getAll.useQuery(
@@ -30,6 +49,13 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
 
  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
 
+const handleUpdateClick = () => {
+  console.log('Update button clicked for task:', task);
+  setSelectedTask(task);
+  openModal();
+  console.log('After openModal');
+};
+
  return (
  <div className="relative bg-white rounded-lg p-4 shadow-md w-[400px]">
    <div className="absolute top-0 right-0">
@@ -45,9 +71,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
          <button className="block w-full text-left  hover:text-red-500 hover:bg-red-100 py-1 px-2 rounded" onClick={() => void deleteTask.mutate({ id: task.id })}>
            Delete
          </button>
-         <button className="block w-full text-left hover:text-blue-500 hover:bg-blue-100 py-1 px-2 rounded">
- Update
+         <button className="block w-full text-left hover:text-blue-500 hover:bg-blue-100 py-1 px-2 rounded" 
+           onClick={handleUpdateClick}
+>
+  Update
 </button>
+
 
 
        </div>
@@ -63,6 +92,20 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
   <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M4.66726 7.87341C4.66726 7.15265 4.95358 6.46141 5.46323 5.95176C5.97288 5.44211 6.66412 5.15579 7.38487 5.15579H16.4436C16.6118 5.15579 16.7767 5.20264 16.9198 5.29108C17.0629 5.37953 17.1786 5.50608 17.2538 5.65655C17.3291 5.80702 17.3609 5.97546 17.3458 6.14302C17.3307 6.31057 17.2692 6.4706 17.1683 6.60519L14.8583 9.68515L17.1683 12.7651C17.2692 12.8997 17.3307 13.0597 17.3458 13.2273C17.3609 13.3948 17.3291 13.5633 17.2538 13.7138C17.1786 13.8642 17.0629 13.9908 16.9198 14.0792C16.7767 14.1677 16.6118 14.2145 16.4436 14.2145H7.38487C7.14462 14.2145 6.91421 14.3099 6.74433 14.4798C6.57444 14.6497 6.479 14.8801 6.479 15.1204V17.838C6.479 18.0782 6.38356 18.3087 6.21368 18.4785C6.04379 18.6484 5.81338 18.7439 5.57313 18.7439C5.33288 18.7439 5.10247 18.6484 4.93258 18.4785C4.7627 18.3087 4.66726 18.0782 4.66726 17.838L4.66726 7.87341Z" fill="#6E7C87"/>
 </svg>     <span className="ml-2">{task.createdAt.toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
    </div>
+   <TaskDialog
+ isOpen={isOpen}
+ onClose={closeModal}
+ titleRef={titleRef}
+ selectedTask={selectedTask}
+ setSelectedTask={setSelectedTask}
+
+ descriptionRef={descriptionRef}
+ statusRef={statusRef}
+ priorityRef={priorityRef}
+ createTaskHandler={createTaskHandler}
+ closeModal={closeModal}
+/>
  </div>
+
  );
 };
