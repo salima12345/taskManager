@@ -50,7 +50,7 @@ const AllTask = () => {
 
  return (
   <Layout>
-     <div className="flex flex-col items-center justify-center min-h-screen py-0 relative w-[100rem]">
+     <div className="flex   bg-gray-50 flex-col px-20 top-15   px-30 min-h-screen py-20 relative w-[100rem]">
        <div className="fixed top-0 left-0 w-full bg-white h-14 border-b">
          <div className="flex justify-end items-center h-full">
            <button
@@ -61,26 +61,27 @@ const AllTask = () => {
            </button>
          </div>
        </div>
-       <div className="flex  gap-20 mr-40 ml-0">
-         <div className="w-full sm:w-1/4 p-5 ">
-           <h2 className="text-xl font-semibold mb-4">Pending </h2>
-           {pendingTasks.map(task => (
-             <TaskCard key={task.id} task={task} />
-           ))}
-         </div>
-         <div className="w-full sm:w-1/4 p-4 ">
-           <h2 className="text-xl font-semibold mb-4">In Progress </h2>
-           {inProgressTasks.map(task => (
-             <TaskCard key={task.id} task={task} />
-           ))}
-         </div>
-         <div className="w-full sm:w-1/4 p-4 mr-40">
-           <h2 className="text-xl font-semibold mb-4">Completed </h2>
-           {completedTasks.map(task => (
-             <TaskCard key={task.id} task={task} />
-           ))}
-         </div>
-       </div>
+       <div className="flex justify-start gap-10  ml-0">
+ <div className="flex-1/3  p-3  bg-gray-100 rounded-lg ">
+  <h2 className=" text-gray-500 font-inter font-medium mb-4">Pending </h2>
+  {pendingTasks.map(task => (
+    <TaskCard key={task.id} task={task} />
+  ))}
+ </div>
+ <div className="flex-1/3  p-3 bg-gray-100 rounded-lg ">
+  <h2 className=" text-gray-500 font-inter font-medium mb-4">In Progress </h2>
+  {inProgressTasks.map(task => (
+    <TaskCard key={task.id} task={task} />
+  ))}
+ </div>
+ <div className="flex-1/3  p-3  bg-gray-100 rounded-lg">
+  <h2 className=" text-gray-500 font-inter font-medium mb-4">Completed </h2>
+  {completedTasks.map(task => (
+    <TaskCard key={task.id} task={task} />
+  ))}
+ </div>
+</div>
+
        <TaskDialog
          isOpen={isOpen}
          onClose={closeModal}

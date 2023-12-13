@@ -46,7 +46,7 @@ const AllTask = () => {
 
  return (
   <Layout>
-     <div className="flex items-center  min-h-screen py-0 relative w-[100rem]">
+     <div className="flex   bg-gray-50   top-15    min-h-screen py-20 relative w-[100rem]">
        <div className="fixed top-0 left-0 w-full bg-white h-14 border-b">
          <div className="flex justify-end items-center h-full">
            <button
@@ -57,15 +57,13 @@ const AllTask = () => {
            </button>
          </div>
        </div>
-       <div className="flex flex-wrap justify-content-start align-items-start gap-20 mr-40 ml-0">
- <div className="p-6">
+ <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7 ml-10">
    {pendingTasks.map(task => (
-     <div className="mr-6">
+     <div className="mr-6 ">
        <TaskCard key={task.id} task={task} />
      </div>
    ))}
  </div>
-</div>
 
         
         

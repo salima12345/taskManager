@@ -57,7 +57,7 @@ const handleUpdateClick = () => {
 };
 
  return (
- <div className="relative bg-white rounded-lg p-4 mb-10  shadow-md w-[300px] ">
+ <div className="relative bg-white rounded-lg p-2 mb-10 mr-1 shadow-md w-[300px]  ">
    <div className="absolute top-0 right-0">
      <button onClick={() => setIsOptionsOpen(!isOptionsOpen)} className="bg-transparent hover:bg-gray-200 text-gray-500 font-bold py-2 px-2 rounded-lg  border shadow-md mr-4 mt-4 ">
        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
@@ -82,7 +82,7 @@ const handleUpdateClick = () => {
        </div>
      )}
    </div>
-   <div className="p-2">
+   <div className="p-1">
    <span className={task.priority === 'HIGH' 
  ? "inline-block px-2 py-1 leading-none bg-red-200 text-red-400 rounded-full font-semibold uppercase tracking-wide text-xs" 
  : task.priority === 'MEDIUM' 
@@ -90,7 +90,7 @@ const handleUpdateClick = () => {
    : "inline-block px-2 py-1 leading-none bg-green-200 text-green-400 rounded-full font-semibold uppercase tracking-wide text-xs"}>
  {task.priority}
 </span>
-     <h2 className="mt-2 mb-2 text-black text-[14.494px] font-semibold line-height-[21.741px] text-[#1A1919]">{task.title}</h2>
+     <h2 className="mt-2 mb-1 text-black text-[14.494px] font-semibold line-height-[21.741px] text-[#1A1919]">{task.title}</h2>
      <p className="text-sm text-[12.682px] font-normal line-height-[140%] text-[#252C32]">{task.description}</p>
    </div>
    <div className="mt-4 flex items-center">
