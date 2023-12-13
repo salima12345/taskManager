@@ -12,7 +12,7 @@ export default function Layout({children}: LayoutProps) {
    return (
      <>
   <div className="flex items-center justify-center min-h-screen bg-gray-50 " >
-    <button className="flex items-center gap-2 bg-white rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800  hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={()=>signIn('google')}>
+    <button className="flex items-center gap-2 bg-white rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800  hover:bg-gray-200  " onClick={()=>signIn('google')}>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
   <path d="M22.5005 12.7332C22.5005 11.8699 22.4291 11.2399 22.2744 10.5865H12.2148V14.4832H18.1196C18.0006 15.4515 17.3577 16.9099 15.9291 17.8898L15.9091 18.0203L19.0897 20.435L19.3101 20.4565C21.3338 18.6249 22.5005 15.9298 22.5005 12.7332Z" fill="#4285F4"/>
   <path d="M12.214 23C15.1068 23 17.5353 22.0666 19.3092 20.4567L15.9282 17.8899C15.0235 18.5083 13.8092 18.9399 12.214 18.9399C9.38069 18.9399 6.97596 17.1083 6.11874 14.5766L5.99309 14.5871L2.68583 17.0954L2.64258 17.2132C4.40446 20.6433 8.0235 23 12.214 23Z" fill="#34A853"/>
