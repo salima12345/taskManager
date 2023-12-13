@@ -97,8 +97,8 @@ const TaskDialog: React.FC<TaskDialogProps> = ({
               onChange={handleInputChange}
               name="status"
             >
-              <option value="TODO">To Do</option>
-              <option value="PENDING">In Progress</option>
+              <option value="PENDING">Pending</option>
+              <option value="INPROGRESS">In Progress</option>
               <option value="DONE">Done</option>
             </select>
           </div>
@@ -131,7 +131,7 @@ const TaskDialog: React.FC<TaskDialogProps> = ({
               Cancel
             </button>
             <button
-              className="bg-indigo-100 text-indigo-500 border border-indigo-300 hover:bg-indigo-700 hover:text-white py-2 px-4 rounded mb-4 transition duration-300 ease-in-out"
+              className="b-blue-100 text-blue-500 border border-blue-300 hover:bg-blue-700 hover:text-white py-2 px-4 rounded mb-4 transition duration-300 ease-in-out"
               type="button"
               style={{
                width: '14rem',

@@ -3,7 +3,7 @@ import { Dialog } from '@headlessui/react';
 import { useSession } from 'next-auth/react';
 import { api, type RouterOutputs } from '../utils/api';
 import Layout from '~/components/Layout';
-import {type  NextPage } from 'next';
+import {type NextPage } from 'next';
 import { useRef } from 'react';
 import { TaskPriority } from '@prisma/client';
 import { TaskStatus } from '@prisma/client';
@@ -11,27 +11,22 @@ import { useTaskModel } from '../components/TaskModel';
 import { TaskCard } from '../components/TaskCard';
 import TaskDialog from '~/components/TaskDialog';
 
+const AllTask = () => {
+ const {
+   isOpen,
+   titleRef,
+   descriptionRef,
+   statusRef,
+   priorityRef,
+   openModal,
+   closeModal,
+   createTaskHandler,
+   editTask,
+   selectedTask,
+   setSelectedTask,
+   tasks,
+ } = useTaskModel();
 
-
-const Home = () => {
-  const { data: session } = useSession();
-
-
-  const {
-    isOpen,
-    titleRef,
-    descriptionRef,
-    statusRef,
-    priorityRef,
-    openModal,
-    closeModal,
-    createTaskHandler,
-    editTask,
-    selectedTask,
-    setSelectedTask,
-    tasks,
-  } = useTaskModel();
-  
  interface Task {
   id: string;
   title: string;
@@ -42,35 +37,12 @@ const Home = () => {
   userId: string;
  }
  
- let pendingTasks: Task[] = [];
  let inProgressTasks: Task[] = [];
- let completedTasks: Task[] = [];
  
  if (tasks) {
-  pendingTasks = tasks.filter(task => task.status === 'PENDING');
   inProgressTasks = tasks.filter(task => task.status === 'INPROGRESS');
-  completedTasks = tasks.filter(task => task.status === 'DONE');
  }
-
-
- if (!session) return null;
-
-
-
-
-
-
  
-
- 
-
-
-
-
-
-
-
-
 
  return (
   <Layout>
@@ -85,26 +57,15 @@ const Home = () => {
            </button>
          </div>
        </div>
-       <div className="flex  gap-20 mr-40 ml-0">
-         <div className="w-full sm:w-1/4 p-5 ">
-           <h2 className="text-xl font-semibold mb-4">Pending </h2>
-           {pendingTasks.map(task => (
-             <TaskCard key={task.id} task={task} />
-           ))}
-         </div>
-         <div className="w-full sm:w-1/4 p-4 ">
-           <h2 className="text-xl font-semibold mb-4">In Progress </h2>
-           {inProgressTasks.map(task => (
-             <TaskCard key={task.id} task={task} />
-           ))}
-         </div>
-         <div className="w-full sm:w-1/4 p-4 mr-40">
-           <h2 className="text-xl font-semibold mb-4">Completed </h2>
-           {completedTasks.map(task => (
-             <TaskCard key={task.id} task={task} />
-           ))}
-         </div>
-       </div>
+       <div className="flex flex-wrap justify-content-start align-items-start gap-20 mr-40 ml-0">
+ <div className="p-6">
+   {inProgressTasks.map(task => (
+     <div className="mr-6">
+       <TaskCard key={task.id} task={task} />
+     </div>
+   ))}
+ </div>
+</div>
        <TaskDialog
          isOpen={isOpen}
          onClose={closeModal}
@@ -122,4 +83,4 @@ const Home = () => {
  );
 };
 
-export default Home;
+export default AllTask;

@@ -22,7 +22,7 @@ export default function Layout({children}: LayoutProps) {
    )
  }
  return (
- <div className="bg-gray-50 min-h-screen">
+ <div className="bg-gray-50 min-h-screen ">
  <div className="block md:hidden flex items-center ">
  
 

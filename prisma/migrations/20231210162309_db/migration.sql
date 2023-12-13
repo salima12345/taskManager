@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "TaskStatus" AS ENUM ('TODO', 'PENDING', 'DONE');
+CREATE TYPE "TaskStatus" AS ENUM ('PENDING', 'INPROGRESS', 'DONE');
 
 -- CreateEnum
 CREATE TYPE "TaskPriority" AS ENUM ('LOW', 'MEDIUM', 'HIGH');

@@ -20,7 +20,7 @@ export const Header = () => {
           <ul className="flex flex-col py-4 space-y-1">
             
             <li>
-              <Link href="#" className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+              <Link href="/allTask" className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                 <span className="inline-flex justify-center items-center ml-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
   <path d="M5.25 8.0625H3.75C1.935 8.0625 0.9375 7.065 0.9375 5.25V3.75C0.9375 1.935 1.935 0.9375 3.75 0.9375H5.25C7.065 0.9375 8.0625 1.935 8.0625 3.75V5.25C8.0625 7.065 7.065 8.0625 5.25 8.0625ZM3.75 2.0625C2.565 2.0625 2.0625 2.565 2.0625 3.75V5.25C2.0625 6.435 2.565 6.9375 3.75 6.9375H5.25C6.435 6.9375 6.9375 6.435 6.9375 5.25V3.75C6.9375 2.565 6.435 2.0625 5.25 2.0625H3.75Z" fill="#787486"/>
@@ -32,7 +32,7 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="#" className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+              <Link href="/Pending" className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                 <span className="inline-flex justify-center items-center ml-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
   <g clip-path="url(#clip0_336_202)">
@@ -49,7 +49,7 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="#" className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+              <Link href="/Inprogress" className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                 <span className="inline-flex justify-center items-center ml-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
   <path d="M8.77139 6.84114H12.3386" stroke="#787486" stroke-width="1.35892" stroke-linecap="round" stroke-linejoin="round"/>
@@ -62,7 +62,7 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="#" className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+              <Link href="/Completed" className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                 <span className="inline-flex justify-center items-center ml-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
   <path d="M6.14189 13.4599H5.80216C3.08432 13.4599 1.7254 12.7805 1.7254 9.38319V5.98589C1.7254 3.26805 3.08432 1.90913 5.80216 1.90913H11.2378C13.9557 1.90913 15.3146 3.26805 15.3146 5.98589V9.38319C15.3146 12.101 13.9557 13.4599 11.2378 13.4599H10.8981C10.6875 13.4599 10.4836 13.5619 10.3545 13.7317L9.33535 15.0906C8.88691 15.6886 8.15309 15.6886 7.70465 15.0906L6.68546 13.7317C6.57674 13.5822 6.32534 13.4599 6.14189 13.4599Z" stroke="#787486" stroke-width="1.35892" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>

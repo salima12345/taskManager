@@ -3,7 +3,7 @@ import { Dialog } from '@headlessui/react';
 import { useSession } from 'next-auth/react';
 import { api, type RouterOutputs } from '../utils/api';
 import Layout from '~/components/Layout';
-import {type  NextPage } from 'next';
+import {type NextPage } from 'next';
 import { useRef } from 'react';
 import { TaskPriority } from '@prisma/client';
 import { TaskStatus } from '@prisma/client';
@@ -11,27 +11,22 @@ import { useTaskModel } from '../components/TaskModel';
 import { TaskCard } from '../components/TaskCard';
 import TaskDialog from '~/components/TaskDialog';
 
+const AllTask = () => {
+ const {
+   isOpen,
+   titleRef,
+   descriptionRef,
+   statusRef,
+   priorityRef,
+   openModal,
+   closeModal,
+   createTaskHandler,
+   editTask,
+   selectedTask,
+   setSelectedTask,
+   tasks,
+ } = useTaskModel();
 
-
-const Home = () => {
-  const { data: session } = useSession();
-
-
-  const {
-    isOpen,
-    titleRef,
-    descriptionRef,
-    statusRef,
-    priorityRef,
-    openModal,
-    closeModal,
-    createTaskHandler,
-    editTask,
-    selectedTask,
-    setSelectedTask,
-    tasks,
-  } = useTaskModel();
-  
  interface Task {
   id: string;
   title: string;
@@ -51,26 +46,7 @@ const Home = () => {
   inProgressTasks = tasks.filter(task => task.status === 'INPROGRESS');
   completedTasks = tasks.filter(task => task.status === 'DONE');
  }
-
-
- if (!session) return null;
-
-
-
-
-
-
  
-
- 
-
-
-
-
-
-
-
-
 
  return (
   <Layout>
@@ -122,4 +98,4 @@ const Home = () => {
  );
 };
 
-export default Home;
+export default AllTask;
