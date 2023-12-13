@@ -17,7 +17,7 @@ export const taskRouter = createTRPCRouter({
       z.object({
         title: z.string(),
         description: z.string(),
-        status: z.enum(["PENDING", "IN PROGRESS", "DONE"]),
+        status: z.enum(["PENDING", "INPROGRESS", "DONE"]),
         priority: z.enum(["LOW", "MEDIUM", "HIGH"]),
         userId: z.string(),
       })
@@ -40,7 +40,7 @@ export const taskRouter = createTRPCRouter({
         id: z.string(),
         title: z.string(),
         description: z.string(),
-        status: z.enum(["PENDING", "IN PROGRESS", "DONE"]),
+        status: z.enum(["PENDING", "INPROGRESS", "DONE"]),
         priority: z.enum(["LOW", "MEDIUM", "HIGH"]),
       })
     )

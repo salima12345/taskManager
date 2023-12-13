@@ -89,7 +89,7 @@ model Task {
 enum TaskStatus {
  
  PENDING
- IN PROGRESS
+ INPROGRESS
  DONE
 }
 
