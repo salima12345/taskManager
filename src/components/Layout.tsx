@@ -11,7 +11,9 @@ export default function Layout({children}: LayoutProps) {
  if(!session){
    return (
      <>
-  <div className="flex items-center justify-center min-h-screen bg-gray-50 " >
+  <div className="flex  flex-col items-center justify-center min-h-screen bg-gray-50 " >
+  <h1 className="text-2xl  text-black font-semibold mb-4">Log in to Brees</h1>
+
     <button className="flex items-center gap-2 bg-white rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800  hover:bg-gray-200  " onClick={()=>signIn('google')}>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
   <path d="M22.5005 12.7332C22.5005 11.8699 22.4291 11.2399 22.2744 10.5865H12.2148V14.4832H18.1196C18.0006 15.4515 17.3577 16.9099 15.9291 17.8898L15.9091 18.0203L19.0897 20.435L19.3101 20.4565C21.3338 18.6249 22.5005 15.9298 22.5005 12.7332Z" fill="#4285F4"/>
