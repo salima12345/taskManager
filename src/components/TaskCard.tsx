@@ -48,13 +48,16 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task}) => {
 
 
  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+ const [isTaskUpdated, setIsTaskUpdated] = useState(false);
 
-const handleUpdateClick = () => {
+ const handleUpdateClick = () => {
   console.log('Update button clicked for task:', task);
   setSelectedTask(task);
   openModal();
   console.log('After openModal');
-};
+  setIsTaskUpdated(true);
+ };
+ 
 
  return (
  <div className="relative bg-white rounded-lg p-2 mb-10 mr-1 shadow-md w-[300px]  ">
@@ -66,7 +69,7 @@ const handleUpdateClick = () => {
          <path d="M3.42467 8.47798C3.75823 8.47798 4.02864 8.20757 4.02864 7.87401C4.02864 7.54045 3.75823 7.27005 3.42467 7.27005C3.09111 7.27005 2.82071 7.54045 2.82071 7.87401C2.82071 8.20757 3.09111 8.47798 3.42467 8.47798Z" stroke="#6F6F6F" stroke-width="1.20793" stroke-linecap="round" stroke-linejoin="round"/>
        </svg>
      </button>
-     {isOptionsOpen && (
+     {!isTaskUpdated && isOptionsOpen &&(
        <div className="absolute top-12 right-0 bg-white border shadow-md p-2 rounded w-[150px] ">
          <button className="block w-full text-left  hover:text-red-500 hover:bg-red-100 py-1 px-2 rounded" onClick={() => void deleteTask.mutate({ id: task.id })}>
            Delete
